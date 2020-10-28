@@ -14,6 +14,8 @@ const SOUNDCLOUD_REGEX = /http(s)?:\/\/(.*\.)?soundcloud\.com\/[A-z0-9_/?=-]+/;
 const STREAMANITY_REGEX = /http(s)?:\/\/(.*\.)?streamanity\.com\/video\/([A-z0-9]+(\?ref=([A-z0-9-])+)?)/;
 const TROLL_TOLL_REGEX = /\/(trolltoll) (set|add|remove) @([0-9]+)( \$([0-9]+(.[0-9]+)?))?/im;
 const TROLL_TOLL_DEFAULT_REGEX = /\/(trolltoll) @([0-9]+)( \$([0-9]+(.[0-9]+)?))?/im;
+const TEACH_TOLL_REGEX = /\/(teachtoll) (set|add|remove) @([0-9]+)( \$([0-9]+(.[0-9]+)?))?/im;
+const TEACH_TOLL_DEFAULT_REGEX = /\/(teachtoll) @([0-9]+)( \$([0-9]+(.[0-9]+)?))?/im;
 const TWETCH_POST_REGEX = /http(s)?:\/\/(.*\.)?twetch\.app\/t\/([A-z0-9_/?=]+)/;
 const TWETCH_REPLY_REGEX = /http(s)?:\/\/(.*\.)?twetch\.app\/t\/[A-z0-9_/?=]+#([A-z0-9_/?=]+)/;
 const TWITTER_REGEX = /http(s)?:\/\/(.*\.)?twitter\.com\/[A-z0-9_/?=]+/;
@@ -62,6 +64,8 @@ const options = {
 	STREAMANITY_REGEX,
 	TROLL_TOLL_REGEX,
 	TROLL_TOLL_DEFAULT_REGEX,
+	TEACH_TOLL_REGEX,
+	TEACH_TOLL_DEFAULT_REGEX,
 	TWETCH_POST_REGEX,
 	TWETCH_REPLY_REGEX,
 	TWITTER_REGEX,
