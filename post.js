@@ -44,6 +44,7 @@ class PostHelper {
 					pay: this.payCommand(description, options),
 					poll: this.pollCommand(description, options),
 					trollToll: this.trollTollCommand(description, options),
+					teachToll: this.teatchTollCommand(description, options)
 				},
 			};
 		} catch (e) {
@@ -113,6 +114,12 @@ class PostHelper {
 
 		if (trollTollCommand) {
 			description = trollTollCommand.match[0];
+		}
+		
+		const teachTollCommand = this.teatchTollCommand(description);
+
+		if (teachTollCommand) {
+			description = teachTollCommand.match[0];
 		}
 
 		if (!options.unfurl) {
@@ -363,6 +370,26 @@ class PostHelper {
 		}
 
 		match = description.match(regex.TROLL_TOLL_DEFAULT_REGEX);
+
+		if (match) {
+			const [r, command, userId, x, amount] = match;
+			return { command: command.toLowerCase(), action: 'add', userId, amount, match };
+		}
+	}
+	
+	static teachTollCommand(description, options = {}) {
+		if (typeof description === 'object') {
+			description = this.description(description, options);
+		}
+
+		let match = description.match(regex.TEACH_TOLL_REGEX);
+
+		if (match) {
+			const [r, command, action, userId, x, amount] = match;
+			return { command: command.toLowerCase(), action, userId, amount, match };
+		}
+
+		match = description.match(regex.TEACH_TOLL_DEFAULT_REGEX);
 
 		if (match) {
 			const [r, command, userId, x, amount] = match;
